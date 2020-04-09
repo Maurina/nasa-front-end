@@ -1,0 +1,9 @@
+query AllCards ($searchString: String) {
+  Courses (searchString: $searchString) {
+    title
+    description
+    source
+    keywords
+    dateCreated
+  }
+}

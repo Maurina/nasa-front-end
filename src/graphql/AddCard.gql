@@ -1,0 +1,11 @@
+mutation AddCard ($title: String!, $description: String, $source: String, $keywords: String, $dateCreated: String) {
+  createCourse (
+    title: $title,
+    description: $description,
+    source: $source,
+    keywords: $keywords,
+    dateCreated: $dateCreated
+  ) {
+      id
+  }
+}
