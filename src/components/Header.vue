@@ -33,7 +33,22 @@
             </router-link>
           </v-list-item-title>
         </v-list-item>
-
+      <v-list-item>
+           <v-list-item-title> 
+            <router-link to="/rest" tag="li" active-class="active">
+              <a class= "black--text">Rest Display
+              </a>
+            </router-link>
+          </v-list-item-title>
+        </v-list-item>
+              <v-list-item>
+           <v-list-item-title> 
+            <router-link to="/restedit" tag="li" active-class="active">
+              <a class= "black--text">Rest Edit
+              </a>
+            </router-link>
+          </v-list-item-title>
+        </v-list-item>
          
         </v-list>
       </v-menu>

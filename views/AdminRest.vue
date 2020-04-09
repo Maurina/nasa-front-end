@@ -1,19 +1,19 @@
 <template>
     <div>
         <div class="frame">
-            <Admin/>
+            <AdminRest/>
         </div>
     </div>
 </template>
 
 <script>
-import Admin from "@/components/Admin.vue"
+import AdminRest from "@/components/AdminRest.vue"
 
 
 export default {
     name: "admin",
     components: {
-        Admin
+        AdminRest
     }
 }
 </script>

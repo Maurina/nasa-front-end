@@ -1,19 +1,21 @@
 <template>
     <div>
         <div class="frame">
-            <Admin/>
-        </div>
+            <Rest/>
+        </div><!--frame-->
+        <Footer/>
     </div>
 </template>
 
 <script>
-import Admin from "@/components/Admin.vue"
-
+import Rest from "@/components/Rest.vue"
+import Footer from '@/components/Footer.vue'
 
 export default {
-    name: "admin",
+    name: "home",
     components: {
-        Admin
+        Rest,
+        Footer,
     }
 }
 </script>
