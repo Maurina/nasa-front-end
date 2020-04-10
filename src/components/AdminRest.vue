@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data: function() {
     return {
@@ -30,10 +32,16 @@ export default {
       dateCreated: '',
     }
   },
+  
   methods: {
     onDone() {
       return console.log('Done')
     }
+  },
+    mounted () {
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.info = response))
   }
 }
 </script>
