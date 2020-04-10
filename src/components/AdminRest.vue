@@ -35,13 +35,27 @@ export default {
   
   methods: {
     onDone() {
-      return console.log('Done')
-    }
+      axios
+        .get('http://localhost:8000')
+        .then(response => (
+              this.title = response.data.title,
+                this.description = response.data.description,
+                this.source = response.data.source,
+                this.keywords = response.data.keywords,
+                this.dateCreated = response.data.dateCreated
+          ))}
   },
-    mounted () {
+/*     mounted () {
     axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response))
-  }
-}
+      .get('http://localhost:8000')
+      .then(response => (
+             this.title = response.data.title,
+              this.description = response.data.description,
+              this.source = response.data.source,
+              this.keywords = response.data.keywords,
+              this.dateCreated = response.data.dateCreated
+        ))}
+} */
+
+    } 
 </script>

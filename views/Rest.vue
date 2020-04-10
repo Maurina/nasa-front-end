@@ -11,12 +11,13 @@
 import Rest from "@/components/Rest.vue"
 import Footer from '@/components/Footer.vue'
 
+
 export default {
     name: "home",
     components: {
         Rest,
         Footer,
-    }
+    },
 }
 </script>
 
