@@ -5,7 +5,7 @@
           <v-col cols="4" v-for="(item, i) in Cards" :key="i">
             <v-card class="mx-auto newCard" max-width="350">
               <v-card-text>
-                <div>{{ item.title}}</div>
+                <h2>{{ item.title}}</h2>
                 <p>
                   {{ item.description }}
                 </p>
@@ -14,7 +14,7 @@
                 <p>{{ item.dateCreated }}</p>
               </v-card-text>
               <v-card-actions>
-                <v-btn text color="deep-purple accent-4">
+                <v-btn text color="black white--text">
                   Learn More
                 </v-btn>
               </v-card-actions>
@@ -42,18 +42,22 @@ export default {
   },
    mounted () {
     axios
-      .get('http://localhost:8000')
+      .get('http://localhost:8000/products')
       .then(response => (
-             this.Cards.title = response.product.title,
-              this.Cards.description = response.product.description,
-              this.Cards.source = response.product.source,
-              this.Cards.keywords = response.product.keywords,
-              this.Cards.dateCreated = response.product.dateCreated
+             this.Cards.title = response.test.products.title,
+              this.Cards.description = response.test.products.description,
+              this.Cards.source = response.test.products.source,
+              this.Cards.keywords = response.test.products.keywords,
+              this.Cards.dateCreated = response.test.products.dateCreated,
+              this.Cards.id = response.test.products.dateCreated
         ))}
 }
 </script>
 
 <style scoped>
+h2{
+  font-size: 2rem;
+}
 
 p{
   font-size: 1.4rem;
