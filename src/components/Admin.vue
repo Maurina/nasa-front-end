@@ -1,7 +1,8 @@
 <template>
   <ApolloMutation
-    :mutation="require('../graphql/AddCard.gql')"
+    :mutation="require('../graphql/UpdateCard.gql')"
     :variables="{
+      id,
       title,
       description,
       source,
@@ -24,6 +25,7 @@
             <v-textarea v-model="description" label="Description" rows="4" filled clearable></v-textarea>
          </v-card-text>
               <v-card-actions>
+        <v-btn large color="red white--text" :disabled="loading" @click="returnHome">Cancel </v-btn>
         <v-btn large color="black white--text" :disabled="loading" @click="mutate()">Add Card</v-btn>
               </v-card-actions>
         <p v-if="error">An error occurred: {{ error }}</p>
@@ -38,16 +40,20 @@
 export default {
   data: function() {
     return {
-      title: '',
-      description: '',
-      source: '',
-      keywords: '',
-      dateCreated: '',
+      id: this.$store.getters.currentEditableCard.id,
+      title: this.$store.getters.currentEditableCard.title,
+      description: this.$store.getters.currentEditableCard.description,
+      source: this.$store.getters.currentEditableCard.source,
+      keywords: this.$store.getters.currentEditableCard.keywords,
+      dateCreated: this.$store.getters.currentEditableCard.dateCreated,
     }
   },
   methods: {
     onDone() {
       return console.log('Done')
+    },
+    returnHome() {
+      this.$router.push('/')
     }
   }
 }

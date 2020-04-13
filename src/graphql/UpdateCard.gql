@@ -1,0 +1,16 @@
+mutation UpdateCard ($id: String!, $title: String!, $description: String, $source: String, $keywords: String, $dateCreated: String){
+    UpdateOneCard (where:
+    { id: $id},
+    data:{
+        title: $title,
+        description: $description,
+        source: $source,
+        dateCreated: $dateCreated
+        keywords: {
+           set: $keywords
+           }
+        }
+    ){
+        id
+    }
+}

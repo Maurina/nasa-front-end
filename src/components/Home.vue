@@ -24,8 +24,8 @@
                 <p>{{ item.dateCreated }}</p>
               </v-card-text>
               <v-card-actions>
-                <v-btn text color="deep-purple accent-4">
-                  Learn More
+                <v-btn text color="black white--text" @click="editCard(item)">
+                  Edit
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -43,11 +43,17 @@
 //import vue-truncate-filter from 'vue-truncate-filter'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
 
   data: () => ({
     searchString: "earth"
   }),
+  methods: {
+    editCard(card) {
+      this.$store.dispatch('editCard', card)
+      this.$router.push('admin')
+    }
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 query AllCards ($searchString: String) {
-  Courses (searchString: $searchString) {
+  Cards (searchString: $searchString) {
     title
     description
     source
