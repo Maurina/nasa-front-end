@@ -51,7 +51,7 @@ export default {
   methods: {
     editCard(card) {
       this.$store.dispatch('editCard', card)
-      this.$router.push('admin')
+      this.$router.push('graphqledit')
     }
   }
 }

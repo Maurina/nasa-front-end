@@ -14,8 +14,8 @@
                 <p>{{ item.dateCreatedREST }}</p>
               </v-card-text>
               <v-card-actions>
-                <v-btn text color="black white--text">
-                  Learn More
+                    <v-btn text color="black white--text" @click="editCardREST(item)">
+                  Edit
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -43,9 +43,10 @@ export default {
     methods: {
     editCardREST(Cards) {
       this.$store.dispatch('editCardREST', Cards)
-      this.$router.push('adminrest')
+      this.$router.push('restedit')
     }
   },
+  
    mounted () {
     axios
       .get('http://localhost:8000/')

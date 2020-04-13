@@ -1,5 +1,5 @@
-mutation UpdateCard ($id: String!, $title: String!, $description: String, $source: String, $keywords: String, $dateCreated: String){
-    UpdateOneCard (where:
+mutation updateOneCard ($id: String!, $title: String!, $description: String, $source: String, $keywords: String, $dateCreated: String){
+    updateOneCard (where:
     { id: $id},
     data:{
         title: $title,

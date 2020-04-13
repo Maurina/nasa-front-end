@@ -1,9 +1,10 @@
-query AllCards ($searchString: String) {
-  Cards (searchString: $searchString) {
-    title
-    description
-    source
-    keywords
-    dateCreated
-  }
+query AllCards {
+ Cards{
+  title
+  id
+  description
+  source
+  keywords
+  dateCreated
+}
 }

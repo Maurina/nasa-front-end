@@ -12,7 +12,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn large color="red white--text" :disabled="loading" @click="returnHome">Cancel </v-btn>
-            <v-btn large color="black white--text" :disabled="loading" type="submit" @click="onDone()">Add Card</v-btn>
+            <v-btn large color="black white--text" :disabled="loading" type="submit" @click="onDone()">Update Card</v-btn>
         </v-card-actions>
       </v-container>
     </v-form>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 
 export default {
   data: function() {
@@ -37,7 +37,7 @@ export default {
   },
   
   methods: {
-    onDone() {
+    /* onDone() {
       axios
         .get('http://localhost:8000//admin/edit-product')
         .then(response => (
@@ -47,11 +47,11 @@ export default {
               this.Cards.imageURL = response.test.products.imageURL,
               this.Cards.dateCreated = response.test.products.dateCreated,
               this.Cards.id = response.test.products.id
-          ))}
-  },
-    returnHome() {
+          ))} */
+      returnHome() {
       this.$router.push('/rest')
     }
+  }
 /*     mounted () {
     axios
       .get('http://localhost:8000')
