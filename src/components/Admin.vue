@@ -54,7 +54,8 @@ export default {
     },
     returnHome() {
       this.$router.push('/')
-    }
+    },
+    
   }
 }
 </script>

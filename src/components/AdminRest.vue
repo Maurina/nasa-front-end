@@ -26,21 +26,20 @@ import axios from 'axios'
 export default {
   data: function() {
     return {
-      Cards:{
-            title: '',
-            description: 'sdfa',
-            source: 'sdfd',
-            imageURL: '',
-            dateCreated: 'sdfd',
-            id: 'sdfds'
-    }
+      id: this.$store.getters.currentEditableCardREST.id,
+      title: this.$store.getters.currentEditableCardREST.title,
+      description: this.$store.getters.currentEditableCardREST.description,
+      source: this.$store.getters.currentEditableCardREST.source,
+      keywords: this.$store.getters.currentEditableCardREST.keywords,
+      dateCreated: this.$store.getters.currentEditableCardREST.dateCreated,
+      imageURL: this.$store.getters.currentEditableCardREST.imageURL
     }
   },
   
   methods: {
     onDone() {
       axios
-        .get('http://localhost:8000/add-product')
+        .get('http://localhost:8000//admin/edit-product')
         .then(response => (
               this.Cards.title = response.test.products.title,
               this.Cards.description = response.test.products.description,
@@ -51,7 +50,7 @@ export default {
           ))}
   },
     returnHome() {
-      this.$router.push('/')
+      this.$router.push('/rest')
     }
 /*     mounted () {
     axios
