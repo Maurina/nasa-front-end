@@ -15,11 +15,10 @@
                 <p>{{ item.source }}</p>
                 <p>{{ item.keywords }}</p>
                 <p>{{ item.dateCreated }}</p>
+                <p> {{ item._id }} </p>
               </v-card-text>
               <v-card-actions>
-                    <v-btn text color="black white--text" @click="editCardREST">
-                  Edit
-                </v-btn>
+                    <v-btn text color="black white--text" @click="editCard"> Edit </v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -33,13 +32,15 @@ import axios from 'axios'
 export default {
     data: function() {
         return {
+          deletedCard: '',
+          updatedCard: '',
           Cards:{
             title: '',
             description: '',
             source: '',
             keywords: '',
             dateCreated: '',
-            id: ''
+            _id: '', 
     },
     allData: {}
         }
@@ -49,31 +50,14 @@ export default {
         return axios
         .get('http://localhost:8000/admin/products')
         .then(response => {
-          console.log(response.data)
-          this.allData = response.data
-          
+          this.allData = response.data      
         })
         .catch(error =>  console.log(error))
-      }
+      },
+        editCard(){
+          this.$router.push('/restedit')          
+        }
 
-/*     editCardREST(item) {
-      this.$store.dispatch('editCardREST', item)
-      this.$router.push('restedit')
-    },
-    getAllCards() {
-      fetch('http://localhost:8000/admin/products',
-      {
-          method: 'POST',
-      })
-      .then(response => {
-         response.json().then(data => {
-                return console.log(data)
-          })
-      })
-      .catch(error => {
-          return console.error(error)
-      })
-    } */
   },
   
 
