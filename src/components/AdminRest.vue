@@ -37,6 +37,7 @@ export default {
   },
   
   methods: {
+    
     /* onDone() {
       axios
         .get('http://localhost:8000//admin/edit-product')
