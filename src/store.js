@@ -30,6 +30,7 @@ export default new Vuex.Store({
         },
         editCardREST(context, card) {
             context.commit('editCardRest', card)
-        }
+        },
+        
     }
 })
