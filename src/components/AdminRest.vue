@@ -49,13 +49,13 @@ import axios from 'axios'
 export default {
   data: function() {
     return {
-      id: '',
-      title: '',
-      description: '',
+      id: '5e4c47434422b94094e56604',
+      title: 'That No Moon...',
+      description: 'That No Moon...',
       source: '',
       keywords: '',
-      dateCreated: '',
-      imageURL: '',
+      dateCreated:  '2011',
+      imageURL: 'http://images-assets.nasa.gov/image/PIA14208/PIA14208~orig.jpg',
       allData: '',
       deletedCard: '',
       newData: '',
@@ -67,7 +67,7 @@ export default {
  
     info(){
          const data={
-          productId: '5e4c47434422b94094e56604'
+          id: this.id
         }
           const url = `http://localhost:8000/admin/edit-product/` 
         return axios
@@ -81,7 +81,11 @@ export default {
     },
         updateCard(){    
         const data={
-          productId: '5e4c47434422b94094e56604'
+          id: this.id,
+          title: this.title,
+          imageURL: this.imageURL,
+          dateCreated: this.dateCreated,
+          description: this.description
         }
           const url = `http://localhost:8000/admin/edit-product/` 
         return axios
@@ -97,7 +101,7 @@ export default {
       deleteCard() {
         const url = `http://localhost:8000/admin/delete-product`
         const data = {
-          productId: '5e4c49f7c9e6ad41bc3c28e0'
+          id: this.id
         }
            return axios
         .post(url, data)
@@ -111,10 +115,10 @@ export default {
         newCard() {
         const url = `http://localhost:8000/admin/add-product`
         const product = {
-          title: 'That No Moon...',
-          description: 'That No Moon...',
-          date: '2011',
-          imageURL: 'http://images-assets.nasa.gov/image/PIA14208/PIA14208~orig.jpg',
+          title: this.title,
+          description: this.description,
+          dateCreated: this.dateCreated,
+          imageURL: this.imageURL,
         }
         console.log(product)
         console.log(url)

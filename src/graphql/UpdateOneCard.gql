@@ -3,10 +3,10 @@
 mutation updateOneCard ($id: String!, $title: String!, $description: String, $source: String, $dateCreated: String) {
   updateOneCard(
     data: {
-      title: $title
-      description: $description
-      source: $source
-      dateCreated: $dateCreated
+      title: $title,
+      description: $description,
+      source: $source,
+      dateCreated: $dateCreated,
     }
     where: { id: $id }
   ) {

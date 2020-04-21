@@ -3,9 +3,9 @@ mutation createOneCard ($title: String!, $description: String, $source: String, 
   createOneCard(
     data: {
       title: $title,
-      description: $description
-      source: $source
-      dateCreated: $dateCreated
+      description: $description,
+      source: $source,
+      dateCreated: $dateCreated,
     }
   ) {
     id
