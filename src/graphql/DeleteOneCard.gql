@@ -1,0 +1,6 @@
+mutation deleteOneCard($id: String!) {
+  deleteOneCard(where: { id: $id }) {
+    id
+    title
+  }
+}

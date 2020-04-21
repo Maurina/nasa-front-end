@@ -1,6 +1,6 @@
 <template>
   <ApolloMutation
-    :mutation="require('../graphql/UpdateCard.gql')"
+    :mutation="require('../graphql/CreateOneCard.gql')"
     :variables="{
       id,
       title,
@@ -18,7 +18,7 @@
       <v-container>
          <v-card-text>
   
-            <v-text-field v-model="title" label="Title" required filled></v-text-field>
+            <v-text-field v-model="title" label="Title" required filled> {{ title }}</v-text-field>
             <v-text-field v-model="source" label="Source" required filled></v-text-field>
             <v-text-field v-model="keywords" label="Keywords" required filled></v-text-field>
             <v-text-field v-model="dateCreated" label="Date Created" required filled></v-text-field>   

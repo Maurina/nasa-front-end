@@ -1,0 +1,17 @@
+
+mutation createOneCard ($title: String!, $description: String, $source: String, $keywords: String, $dateCreated: String){
+  createOneCard(
+    data: {
+      title: $title,
+      description: $description
+      source: $source
+      dateCreated: $dateCreated
+    }
+  ) {
+    id
+    title
+    description
+    source
+    dateCreated
+  }
+}
