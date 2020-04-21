@@ -1,0 +1,5 @@
+query searchItem ($searchString: String!){
+  Cards(searchString: $searchString) {
+    title
+  }
+}

@@ -5,39 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        editableCard: {
-            title: '',
-            source: '',
-            description: '',
-            keywords: '',
-            dateCreated: ''
-        },
-        
-        edtiableCardREST: null,
+        editableCard: null,
     },
     getters:{
         currentEditableCard: (state) => {
-            return state.edtiableCard
+            return state.editableCard
         },
-        currentEditableCardREST: (state) => {
-            return state.edtiableCardREST
-        }
     },
     mutations: {
         editCard(state, editableCard){
             state.editableCard = editableCard
         },
-        editCardREST(state, editableCardREST){
-            state.editableCardREST = editableCardREST
-        }
     },
     actions: {
         editCard(context, card) {
             context.commit('editCard', card)
         },
-        editCardREST(context, card) {
-            context.commit('editCardRest', card)
-        },
+     
         
     }
 })
