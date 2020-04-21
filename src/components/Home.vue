@@ -50,6 +50,7 @@ export default {
   }),
   methods: {
     editCard(card) {
+      console.log(card)
       this.$store.dispatch('editCard', card)
       this.$router.push('graphqledit')
     }

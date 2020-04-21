@@ -1,6 +1,7 @@
 <template>
 <div>
-    <v-card class="mx-auto" max-width="450">
+  <v-row class="style">
+    <v-card class="mx-auto" max-width="750">
     <v-form>
       <v-container>
          <v-card-text>
@@ -12,16 +13,32 @@
             <v-textarea v-model="description" label="Description" rows="4" filled clearable></v-textarea>
         </v-card-text>
         <v-card-actions>
-          <v-btn large color="green white--text" @click="newCard">New Card</v-btn>
+            <v-btn large color="green white--text"  @click="info">Info</v-btn>
             <v-btn large color="black white--text"  @click="updateCard">Update Card</v-btn>
              <v-btn large color="red white--text"  @click="deleteCard">Delete Card </v-btn>
         </v-card-actions>
       </v-container>
     </v-form>
     </v-card>
-
-       <h4> {{ newData }} </h4>
-        <h4> {{ updatedCard }} </h4>
+<v-card class="mx-auto" max-width="750">
+    <v-form>
+      <v-container>
+         <v-card-text>
+        
+            <v-text-field v-model="newtitle" label="Title" required filled></v-text-field>
+            <v-text-field v-model="newsource" label="Source" required filled></v-text-field>
+            <v-text-field v-model="newimageURL" label="imageURL" required filled></v-text-field>
+            <v-text-field v-model="newdateCreated" label="Date Created" required filled></v-text-field>   
+            <v-textarea v-model="newdescription" label="Description" rows="4" filled clearable></v-textarea>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn large color="green white--text" @click="newCard">New Card</v-btn>
+          
+        </v-card-actions>
+      </v-container>
+    </v-form>
+    </v-card>
+  </v-row>
   </div>
 </template>
 
@@ -48,9 +65,23 @@ export default {
   
   methods: {
  
+    info(){
+         const data={
+          productId: '5e4c47434422b94094e56604'
+        }
+          const url = `http://localhost:8000/admin/edit-product/` 
+        return axios
+        .get(url, data)
+        .then(response => {
+          console.log(response)
+          console.log(response.data)
+     
+        })
+        .catch(error =>  console.log(error))
+    },
         updateCard(){    
         const data={
-          productId: '5e4c49f7c9e6ad41bc3c28e0'
+          productId: '5e4c47434422b94094e56604'
         }
           const url = `http://localhost:8000/admin/edit-product/` 
         return axios
@@ -104,3 +135,10 @@ export default {
 
 
 </script>
+
+<style scoped>
+.styling{
+  display: flex;
+  justify-content: space-evenly;
+}
+</style>

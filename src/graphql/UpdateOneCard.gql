@@ -1,6 +1,6 @@
 
 
-mutation updateOneCard ($id: String!, $title: String!, $description: String, $source: String, $keywords: String, $dateCreated: String) {
+mutation updateOneCard ($id: String!, $title: String!, $description: String, $source: String, $dateCreated: String) {
   updateOneCard(
     data: {
       title: $title

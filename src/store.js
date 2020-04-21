@@ -5,7 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        editableCard: null,
+        editableCard: {
+            title: '',
+            source: '',
+            description: '',
+            keywords: '',
+            dateCreated: ''
+        },
+        
         edtiableCardREST: null,
     },
     getters:{
