@@ -1,4 +1,6 @@
 <template>
+
+
   <!-- Apollo watched Graphql query -->
   <ApolloQuery :query="require('../graphql/AllCards.gql')"
    :variables="{ searchString }">
@@ -15,9 +17,9 @@
           <v-col cols="4" v-for="(item, i) in data.Cards" :key="i">
             <v-card class="mx-auto" max-width="350">
               <v-card-text>
-                <div>{{ item.title}}</div>
+                <h2>{{ item.title}}</h2>
                 <p>
-                  {{ item.description }}
+                  {{ item.description  | truncate(100)   }}
                 </p>
                 <p>{{ item.source }}</p>
                 <p>{{ item.keywords }}</p>
@@ -37,6 +39,7 @@
       <div v-else class="no-result apollo">No result :(</div>
     </template>
   </ApolloQuery>
+
 </template>
 
 <script>
@@ -46,14 +49,15 @@ export default {
   name: 'Home',
 
   data: () => ({
-    searchString: "earth"
+   searchString: "",
   }),
   methods: {
     editCard(card) {
       console.log(card)
       this.$store.dispatch('editCard', card)
       this.$router.push('graphqledit')
-    }
+    },
+  
   }
 }
 </script>

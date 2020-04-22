@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="frame">
+            <NewCard/>
             <Admin/>
         </div>
     </div>
@@ -8,12 +9,14 @@
 
 <script>
 import Admin from "@/components/Admin.vue"
+import NewCard from "@/components/NewCard.vue"
 
 
 export default {
     name: "admin",
     components: {
-        Admin
+        Admin,
+        NewCard
     }
 }
 </script>
@@ -22,6 +25,8 @@ export default {
 .frame{
   padding: 2%;
    background:#000 url(/assets/images/stars.png) repeat top center; 
+   display:flex;
+   justify-content: space-around;
 
 }
 

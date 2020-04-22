@@ -20,7 +20,7 @@
               <v-card-actions>
   
 
-              <v-btn color="blue darken-1" text  @click="ManageCard(index)">Manage Cards</v-btn>
+              <v-btn color="blue darken-1" text  @click="ManageCard(item)">Manage Cards</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -54,20 +54,12 @@ export default {
           this.$router.push('/restedit')          
         },
        
-         ManageCard(index, allData){
-             /* this.$router.push('/restedit')   */
-             console.log(index)
-             console.log(allData[index])
-
-              const productId = '5e4c49f7c9e6ad41bc3c28e0'
-            const url = `http://localhost:8000/admin/edit-product/` + productId 
-                return axios
-        .get(url)
-        .then(response => {
-          this.manage = response.data      
-        })
-        .catch(error =>  console.log(error))
-         }
+         ManageCard(card) {
+      console.log(card)
+      this.$store.dispatch('editRest', card)
+      this.$router.push('graphqledit')
+    }
+         
   },
   
 

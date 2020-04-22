@@ -6,11 +6,11 @@
       <v-container>
          <v-card-text>
         
-            <v-text-field v-model="title" label="Title" required filled></v-text-field>
-            <v-text-field v-model="source" label="Source" required filled></v-text-field>
-            <v-text-field v-model="imageURL" label="imageURL" required filled></v-text-field>
-            <v-text-field v-model="dateCreated" label="Date Created" required filled></v-text-field>   
-            <v-textarea v-model="description" label="Description" rows="4" filled clearable></v-textarea>
+            <v-text-field v-model="title" label="Title" required filled>{{ title }}</v-text-field>
+            <v-text-field v-model="source" label="Source" required filled>{{ source }}</v-text-field>
+            <v-text-field v-model="imageURL" label="imageURL" required filled>{{ imageURL }}</v-text-field>
+            <v-text-field v-model="dateCreated" label="Date Created" required filled>{{ dateCreated }}</v-text-field>   
+            <v-textarea v-model="description" label="Description" rows="4" filled clearable>{{ description }}</v-textarea>
         </v-card-text>
         <v-card-actions>
             <v-btn large color="green white--text"  @click="info">Info</v-btn>
@@ -25,11 +25,11 @@
       <v-container>
          <v-card-text>
         
-            <v-text-field v-model="newtitle" label="Title" required filled></v-text-field>
-            <v-text-field v-model="newsource" label="Source" required filled></v-text-field>
-            <v-text-field v-model="newimageURL" label="imageURL" required filled></v-text-field>
-            <v-text-field v-model="newdateCreated" label="Date Created" required filled></v-text-field>   
-            <v-textarea v-model="newdescription" label="Description" rows="4" filled clearable></v-textarea>
+            <v-text-field v-model="newtitle" label="Title" required filled>{{ newtitle }}</v-text-field>
+            <v-text-field v-model="newsource" label="Source" required filled>{{ newsource }}</v-text-field>
+            <v-text-field v-model="newimageURL" label="imageURL" required filled>{{ newimageURL }}</v-text-field>
+            <v-text-field v-model="newdateCreated" label="Date Created" required filled>{{ newdateCreated }}</v-text-field>   
+            <v-textarea v-model="newdescription" label="Description" rows="4" filled clearable>{{ newdescription }}</v-textarea>
         </v-card-text>
         <v-card-actions>
           <v-btn large color="green white--text" @click="newCard">New Card</v-btn>
@@ -49,17 +49,18 @@ import axios from 'axios'
 export default {
   data: function() {
     return {
-      id: '5e4c47434422b94094e56604',
-      title: 'That No Moon...',
-      description: 'That No Moon...',
-      source: '',
-      keywords: '',
-      dateCreated:  '2011',
-      imageURL: 'http://images-assets.nasa.gov/image/PIA14208/PIA14208~orig.jpg',
-      allData: '',
-      deletedCard: '',
-      newData: '',
-      updatedCard:''
+      title: this.$store.getters.currentRest.title,
+      description: this.$store.getters.currentRest.description,
+      source: this.$store.getters.currentRest.source,
+      imageURL: this.$store.getters.currentRest.imageURL,
+      dateCreated: this.$store.getters.currentRest.dateCreated,
+      id: this.$store.getters.currentRest.id,
+      newtitle: 'New',
+      newdescription: 'New Description',
+      newsource: 'New Source',
+      newimageURL: 'New Keyword',
+      newdateCreated: 'New Date',
+      searchWord: "",
     }
   },
   

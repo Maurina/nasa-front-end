@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="frame">
+            <Search/>
             <Home/>
         </div><!--frame-->
         <Footer/>
@@ -9,12 +10,14 @@
 
 <script>
 import Home from "@/components/Home.vue"
+import Search from "@/components/Search.vue"
 import Footer from '@/components/Footer.vue'
 
 export default {
     name: "home",
     components: {
         Home,
+        Search,
         Footer,
     }
 }

@@ -1,72 +1,6 @@
 <template>
 <div>
-  <v-row class="styling">
-    <!-- Create a New Card -->
-  <ApolloMutation
-    :mutation="require('../graphql/CreateOneCard.gql')"
-    :variables="{
-      title,
-      description,
-      source,
-      dateCreated,
-      }"
-      @done="newCard"
-  >
-  <template v-slot="{ mutate, loading, error }">
-    <!-- Form here -->
-    <v-card class="mx-auto" max-width="350">
-    <v-form>
-      <v-container>
-        <v-card-title> Create New Card </v-card-title>
-         <v-card-text>
-            <v-text-field v-model="createtitle" label="Title" required filled> {{ createtitle }} </v-text-field>
-            <v-text-field v-model="createsource" label="Source" required filled> {{ createsource }}</v-text-field>
-            <v-text-field v-model="createkeywords" label="Keywords" required filled> {{ createkeywords }}</v-text-field>
-            <v-text-field v-model="createdateCreated" label="Date Created" required filled> {{ createdateCreated }}</v-text-field>   
-            <v-textarea v-model="createdescription" label="Description" rows="4" filled clearable> {{ createdescription }}</v-textarea>
-         </v-card-text>
-              <v-card-actions>
-        <v-btn large color="red white--text" :disabled="loading" @click="returnHome">Cancel </v-btn>
-        <v-btn large color="black white--text" :disabled="loading" @click="mutate()">New Card</v-btn>
-              </v-card-actions>
-        <p v-if="error">An error occurred: {{ error }}</p>
-      </v-container>
-    </v-form>
-    </v-card>
-  </template>
-  </ApolloMutation>
-
-
-<!-- Update a Card -->
- <ApolloMutation
-    :mutation="require('../graphql/SearchWord.gql')"
-    :variables="{
-    id
-      }"
-      @done="searchCard"
-  >
-  <template v-slot="{ mutate, loading, error }">
-    <!-- Form here -->
-    <v-card class="mx-auto" max-width="350">
-    <v-form>
-      <v-container>
-        <v-card-title> Search </v-card-title>
-         <v-card-text>
-           <v-text-field v-model="searchWord" label="Search word" required filled> {{ searchWord }} </v-text-field>
-         </v-card-text>
-              <v-card-actions>
-        <v-btn large color="red white--text" :disabled="loading" @click="returnHome">Cancel </v-btn>
-        <v-btn large color="black white--text" :disabled="loading" @click="mutate()">Search</v-btn>
-              </v-card-actions>
-        <p v-if="error">An error occurred: {{ error }}</p>
-      </v-container>
-    </v-form>
-    </v-card>
-  </template>
-  </ApolloMutation>
-
-
-
+   <v-row class="styling">
 <!-- Update a Card -->
  <ApolloMutation
     :mutation="require('../graphql/UpdateOneCard.gql')"
@@ -76,7 +10,7 @@
       source,
       dateCreated,
       }"
-      @done="updated"
+      @done="updateCard"
   >
   <template v-slot="{ mutate, loading, error }">
     <!-- Form here -->
@@ -138,6 +72,7 @@
 </template>
 
 <script>
+
 export default {
   data: function() {
     return {
@@ -152,7 +87,7 @@ export default {
       createsource: 'New Source',
       createkeywords: 'New Keyword',
       createdateCreated: 'New Date',
-      searchWord: "",
+      
     }
   },
   methods: {
@@ -162,9 +97,6 @@ export default {
     },
     updateCard(){
       return console.log(this.title)
-    },
-    searchCard(){
-      return console.log('search card')
     },
     deleteCard(){
       return console.log('delete card')
@@ -182,6 +114,6 @@ export default {
 <style scoped>
 .styling{
   display: flex;
-  justify-content: space-evenly;
+
 }
 </style>
