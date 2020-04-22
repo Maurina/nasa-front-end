@@ -1,22 +1,21 @@
 <template>
     <div>
         <div class="frame">
-            <AdminRest/>
-  
+            <NewCard/>
+    
         </div>
     </div>
 </template>
 
 <script>
-import AdminRest from "@/components/AdminRest.vue"
-
+import NewCard from "@/components/NewCard.vue"
 
 
 export default {
     name: "admin",
     components: {
-        AdminRest,
-  
+ 
+        NewCard
     }
 }
 </script>
@@ -25,6 +24,8 @@ export default {
 .frame{
   padding: 2%;
    background:#000 url(/assets/images/stars.png) repeat top center; 
+   display:flex;
+   justify-content: space-around;
 
 }
 

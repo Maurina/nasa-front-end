@@ -33,6 +33,15 @@
             </router-link>
           </v-list-item-title>
         </v-list-item>
+    <v-list-item>
+           <v-list-item-title> 
+            <router-link to="/graphqlcard" tag="li" active-class="active">
+              <a class= "black--text">GraphQL New Card
+              </a>
+            </router-link>
+          </v-list-item-title>
+        </v-list-item>
+
       <v-list-item>
            <v-list-item-title> 
             <router-link to="/rest" tag="li" active-class="active">
@@ -45,6 +54,14 @@
            <v-list-item-title> 
             <router-link to="/restedit" tag="li" active-class="active">
               <a class= "black--text">Rest Edit
+              </a>
+            </router-link>
+          </v-list-item-title>
+        </v-list-item>
+               <v-list-item>
+           <v-list-item-title> 
+            <router-link to="/restcard" tag="li" active-class="active">
+              <a class= "black--text">Rest New Card
               </a>
             </router-link>
           </v-list-item-title>

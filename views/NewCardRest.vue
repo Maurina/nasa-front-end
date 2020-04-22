@@ -1,22 +1,22 @@
 <template>
     <div>
         <div class="frame">
-            <AdminRest/>
-  
+
+            <NewCardRest/>
         </div>
     </div>
 </template>
 
 <script>
-import AdminRest from "@/components/AdminRest.vue"
 
+import NewCardRest from "@/components/NewCardRest.vue"
 
 
 export default {
     name: "admin",
     components: {
-        AdminRest,
-  
+
+        NewCardRest
     }
 }
 </script>

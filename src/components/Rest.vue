@@ -10,10 +10,11 @@
             <v-card class="mx-auto newCard" max-width="350">
               <v-card-text>
                 <h2>{{ item.title }}</h2>
+                <img class="image" v-bind:src="item.imageUrl">
                 <p>
                   {{ item.description  | truncate(100)  }}
                 </p>
-              
+                <p> {{ item.source }}</p>
                 <p>{{ item.date }}</p>
                 <p> {{ item._id }} </p>
               </v-card-text>
@@ -47,17 +48,18 @@ export default {
         .get('http://localhost:8000/admin/products')
         .then(response => {
           this.allData = response.data      
+          console.log(response.data)
         })
         .catch(error =>  console.log(error))
       },
         newCard(){
-          this.$router.push('/restedit')          
+          this.$router.push('/restcard')          
         },
        
          ManageCard(card) {
       console.log(card)
       this.$store.dispatch('editRest', card)
-      this.$router.push('graphqledit')
+      this.$router.push('/restedit')
     }
          
   },
@@ -73,6 +75,11 @@ h2{
 
 p{
   font-size: 1rem;
+}
+
+.image{
+ max-width: 320px;
+ padding: 2% 0;
 }
 </style>
 

@@ -22,6 +22,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue')
     },
     {
+      path: '/graphqlcard',
+      name: 'graphqlcard',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/NewCardGraphQL.vue')
+    },
+    {
       path: '/rest',
       name: 'rest',
       // route level code-splitting
@@ -36,6 +44,14 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '../views/AdminRest.vue')
+    },
+    {
+      path: '/restcard',
+      name: 'restcard',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/NewCardRest.vue')
     },
   ]
 })
