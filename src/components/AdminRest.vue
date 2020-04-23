@@ -55,8 +55,7 @@ export default {
         .post(url, data)
         .then(response => {
           console.log(response)
-          console.log(response.data)
-          this.updatedCard = response.data
+          console.log("Updated Card")
      
         })
         .catch(error =>  console.log(error))

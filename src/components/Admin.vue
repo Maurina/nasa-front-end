@@ -9,6 +9,7 @@
       description,
       source,
       dateCreated,
+      id
       }"
       @done="updateCard"
   >
@@ -96,9 +97,12 @@ export default {
       return console.log("new card created")
     },
     updateCard(){
+       this.$router.push('/')
+      console.log(this.description)
       return console.log(this.title)
     },
     deleteCard(){
+        this.$router.push('/')
       return console.log('delete card')
     },
 

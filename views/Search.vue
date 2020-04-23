@@ -1,23 +1,22 @@
 <template>
     <div>
         <div class="frame">
- 
-            <Home/>
+            <Search/>
+     
         </div><!--frame-->
         <Footer/>
     </div>
 </template>
 
 <script>
-import Home from "@/components/Home.vue"
 
+import Search from "@/components/Search.vue"
 import Footer from '@/components/Footer.vue'
 
 export default {
     name: "home",
     components: {
-        Home,
-
+        Search,
         Footer,
     }
 }

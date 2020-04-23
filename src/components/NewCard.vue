@@ -11,7 +11,7 @@
       dateCreated,
       keywords,
       }"
-      @done="newCard"
+      @done="onDone"
   >
   <template v-slot="{ mutate, loading, error }">
     <!-- Form here -->
@@ -57,7 +57,8 @@ export default {
   },
   methods: {
 
-    newCard(){
+    onDone(card){
+      console.log(card)
       return console.log("new card created")
     },
 

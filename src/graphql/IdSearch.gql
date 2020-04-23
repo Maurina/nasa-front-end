@@ -1,11 +1,11 @@
 query searchCards($id: String!) {
   card(where: {
-    id: "ck8svyb1i0002mgua3rmsmz7w"
+    id: $id
   }) {
-    title
-    description
-    source
-    keywords
-    dateCreated
+    title,
+    description,
+    source,
+    keywords,
+    dateCreated,
   }
 }

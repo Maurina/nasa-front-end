@@ -45,21 +45,20 @@ export default {
    
         newCard() {
         const url = `http://localhost:8000/admin/add-product`
-        const product = {
-          title: this.title,
-          description: this.description,
-          date: this.date,
-          imageUrl: this.imageUrl,
-          source: this.source,
+        const data = {
+          title: "TEst",
+          description: "TESt",
+          date: "2020",
+          imageUrl: "https://www.google.com/",
+          source: "TEST",
         }
-        console.log(product)
+        console.log(data)
         console.log(url)
         return axios
-        .post(url, product)
+        .post(url, data)
         .then(response => {
        
           console.log(response.data)
-          this.newData = response.data
           
         })
         .catch(error =>  console.log(error)) 
