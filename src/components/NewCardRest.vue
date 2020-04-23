@@ -46,11 +46,11 @@ export default {
         newCard() {
         const url = `http://localhost:8000/admin/add-product`
         const data = {
-          title: "TEst",
-          description: "TESt",
-          date: "2020",
-          imageUrl: "https://www.google.com/",
-          source: "TEST",
+          title: this.title,
+          description: this.description,
+          date: this.date,
+          imageUrl: this.imageUrl,
+          source: this.source,
         }
         console.log(data)
         console.log(url)

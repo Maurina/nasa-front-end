@@ -1,7 +1,7 @@
 <template>
 <div>
   <v-row class="style">
-    <v-card class="mx-auto" max-width="750">
+    <v-card class="mx-auto" width="750">
     <v-form>
       <v-container>
          <v-card-text>
@@ -42,7 +42,7 @@ export default {
   
   methods: {
         updateCard(){    
-        const data={
+        let data={
           id: this.id,
           title: this.title,
           imageUrl: this.imageUrl,
@@ -50,27 +50,26 @@ export default {
           description: this.description,
           source: this.source
         }
-          const url = `http://localhost:8000/admin/edit-product/` 
+        let url = `http://localhost:8000/admin/edit-product/` 
+  
         return axios
         .post(url, data)
         .then(response => {
-          console.log(response)
+          console.log(response.data)
           console.log("Updated Card")
      
         })
         .catch(error =>  console.log(error))
       },
       deleteCard() {
-        const url = `http://localhost:8000/admin/delete-product`
-        const data = {
-          id: this.id
-        }
+        let url = `http://localhost:8000/admin/delete-product`
+        console.log(this.id)
+       
            return axios
-        .post(url, data)
+        .post(url, this.id)
         .then(response => {
           console.log(response.data)
-          this.deletedCard = response.data
-          
+          console.log("Gone")
         })
         .catch(error =>  console.log(error))
       },

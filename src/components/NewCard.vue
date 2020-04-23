@@ -28,7 +28,7 @@
          </v-card-text>
               <v-card-actions>
         <v-btn large color="red white--text" :disabled="loading" @click="returnHome">Cancel </v-btn>
-        <v-btn large color="black white--text" :disabled="loading" @click="mutate()">New Card</v-btn>
+        <v-btn large color="green white--text" :disabled="loading" @click="mutate()">New Card</v-btn>
               </v-card-actions>
         <p v-if="error">An error occurred: {{ error }}</p>
       </v-container>

@@ -1,5 +1,5 @@
-query searchItem {
-  Cards(searchString: "Moon") {
+query searchItem  ($searchString: String) {
+  Cards(searchString: $searchString) {
     title
     description
   }

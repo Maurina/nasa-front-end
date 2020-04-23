@@ -29,6 +29,9 @@
                 <v-btn text color="black white--text" @click="editCard(item)">
                   Edit
                 </v-btn>
+                  <v-btn text color="green white--text"  @click="newCard">
+                  New Card
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -57,7 +60,9 @@ export default {
       this.$store.dispatch('editCard', card)
       this.$router.push('graphqledit')
     },
-  
+  newCard(){
+      this.$router.push('/graphqlcard')
+  }
   }
 }
 </script>
