@@ -42,7 +42,7 @@ export default {
   
   methods: {
         updateCard(){    
-        let data={
+        let product={
           id: this.id,
           title: this.title,
           imageUrl: this.imageUrl,
@@ -53,7 +53,7 @@ export default {
         let url = `http://localhost:8000/admin/edit-product/` 
   
         return axios
-        .post(url, data)
+        .post(url, product)
         .then(response => {
           console.log(response.data)
           console.log("Updated Card")

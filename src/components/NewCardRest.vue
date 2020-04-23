@@ -27,6 +27,7 @@
 <script>
 
 import axios from 'axios'
+import qs from 'qs'
 
 export default {
   data: function() {
@@ -43,27 +44,30 @@ export default {
   
   methods: {
    
-        newCard() {
-        const url = `http://localhost:8000/admin/add-product`
-        const data = {
-          title: this.title,
-          description: this.description,
-          date: this.date,
-          imageUrl: this.imageUrl,
-          source: this.source,
-        }
-        console.log(data)
-        console.log(url)
-        return axios
-        .post(url, data)
-        .then(response => {
-       
-          console.log(response.data)
-          
-        })
-        .catch(error =>  console.log(error)) 
+    newCard() {
+      const url = `http://localhost:8000/admin/add-product`
+      const data = {
+        title: this.title,
+        description: this.description,
+        date: this.date,
+        imageUrl: this.imageUrl,
+        source: this.source,
+      }
+      const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: qs.stringify(data),
+        url,
+      }
+      console.log(data)
+      console.log(url)
+      return axios(options)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(error => console.log(error)) 
       },
-      
+
     returnHome() {
       this.$router.push('/rest')
     },
