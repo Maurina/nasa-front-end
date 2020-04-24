@@ -75,7 +75,7 @@ export default {
   deleteCard()  {
       const url =`http://localhost:8000/admin/delete-product`
       const data = {
-        id: '5ea300fca9795b42f8e52937'
+        id: this.id
       }
       const options = {
         method: 'POST',
