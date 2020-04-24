@@ -25,7 +25,7 @@
 </template>
 
 <script>
-
+import qs from 'qs'
 import axios from 'axios'
 
 export default {
@@ -41,39 +41,59 @@ export default {
   },
   
   methods: {
-        updateCard(){    
-        let product={
-          id: this.id,
-          title: this.title,
-          imageUrl: this.imageUrl,
-          date: this.date,
-          description: this.description,
-          source: this.source
-        }
-        let url = `http://localhost:8000/admin/edit-product/` 
-  
-        return axios
-        .post(url, product)
-        .then(response => {
-          console.log(response.data)
-          console.log("Updated Card")
-     
-        })
-        .catch(error =>  console.log(error))
-      },
-      deleteCard() {
-        let url = `http://localhost:8000/admin/delete-product`
-        console.log(this.id)
-       
-           return axios
-        .post(url, this.id)
-        .then(response => {
-          console.log(response.data)
-          console.log("Gone")
-        })
-        .catch(error =>  console.log(error))
+       updateCard(){
+      const url = `http://localhost:8000/admin/edit-product` 
+      const data = {
+        title: this.title,
+        description: this.description,
+        date: this.date,
+        imageUrl: this.imageUrl,
+        source: this.source,
+        id: this.id,
+      }
+
+      const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: qs.stringify(data),
+        url,
+      }
+      console.log(data)
+      console.log(url)
+      return axios(options)
+      .then(response => {
+        console.log(response)
+            console.log("Updated Card")
+      })
+      .catch(error => console.log(error)) 
       },
 
+    returnHome() {
+      this.$router.push('/rest')
+    },
+   
+  deleteCard()  {
+      const url =`http://localhost:8000/admin/delete-product`
+      const data = {
+        id: '5ea300fca9795b42f8e52937'
+      }
+      const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: qs.stringify(data),
+        url,
+      }
+      console.log(data)
+      console.log(url)
+      return axios(options)
+      .then(response => {
+        console.log(response)
+           console.log("Gone")
+      })
+      .catch(error => console.log(error)) 
+      },
+
+  
       
   },
 }
