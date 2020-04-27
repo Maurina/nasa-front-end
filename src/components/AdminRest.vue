@@ -42,7 +42,7 @@ export default {
   
   methods: {
        updateCard(){
-      const url = `http://localhost:8000/admin/edit-product` 
+      const url = `https://desolate-citadel-64807.herokuapp.com//admin/edit-product` 
       const data = {
         title: this.title,
         description: this.description,
@@ -75,7 +75,7 @@ export default {
     },
    
   deleteCard()  {
-      const url =`http://localhost:8000/admin/delete-product`
+      const url =`https://desolate-citadel-64807.herokuapp.com/admin/delete-product`
       const data = {
         id: this.id
       }
