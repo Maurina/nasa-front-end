@@ -15,7 +15,7 @@
   >
   <template v-slot="{ mutate, loading, error }">
     <!-- Form here -->
-    <v-card class="mx-auto" max-width="350">
+    <v-card class="mx-auto" width="750">
     <v-form>
       <v-container>
         <v-card-title> Create New Card </v-card-title>

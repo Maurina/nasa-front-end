@@ -42,14 +42,14 @@
           </v-list-item-title>
         </v-list-item>
 
-         <v-list-item>
+   <!--       <v-list-item>
            <v-list-item-title> 
             <router-link to="/graphqlsearch" tag="li" active-class="active">
               <a class= "black--text">GraphQL Search
               </a>
             </router-link>
           </v-list-item-title>
-        </v-list-item>
+        </v-list-item> -->
 
 
       <v-list-item>

@@ -58,12 +58,14 @@ export default {
         data: qs.stringify(data),
         url,
       }
+      
       console.log(data)
       console.log(url)
       return axios(options)
       .then(response => {
         console.log(response)
             console.log("Updated Card")
+     
       })
       .catch(error => console.log(error)) 
       },
