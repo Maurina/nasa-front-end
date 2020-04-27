@@ -45,7 +45,8 @@ export default {
   methods: {
    
     newCard() {
-      const url = `https://desolate-citadel-64807.herokuapp.com/admin/add-product`
+            this.$router.push('/rest')
+      const url = `http://localhost:8000/admin/add-product`
       const data = {
         title: this.title,
         description: this.description,

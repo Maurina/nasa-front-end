@@ -45,7 +45,7 @@ export default {
     methods: {
       getAllCards(){
         return axios
-        .get('https://desolate-citadel-64807.herokuapp.com/admin/products')
+        .get('http://localhost:8000/admin/products')
         .then(response => {
           this.allData = response.data      
           console.log(response.data)
