@@ -4,7 +4,7 @@
                   Get Cards
                 </v-btn>
     <v-btn text color="white black--text" @click="newCard"> New Card </v-btn>
-    
+    <v-btn text color="white black--text" @click="idCard"> Card by ID </v-btn>
      <v-row>
           <v-col cols="4" v-for="(item, index) in allData" :key="index">
             <v-card class="mx-auto newCard" max-width="350">
@@ -37,15 +37,26 @@ export default {
         return {
           manage: '',
           dialog: false,
+          singleID: '5e4c4935c9e6ad41bc3c28de',
          
-    allData: [],
-    editCard: [],
+          allData: [],
+          editCard: [],
         }
   },
     methods: {
       getAllCards(){
         return axios
         .get('http://localhost:8000/admin/products')
+        .then(response => {
+          this.allData = response.data      
+          console.log(response.data)
+        })
+        .catch(error =>  console.log(error))
+      },
+        idCard(){
+          const singleID = this.singleID
+        return axios
+        .get('/edit-product/:productId') +singleID
         .then(response => {
           this.allData = response.data      
           console.log(response.data)

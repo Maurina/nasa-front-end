@@ -1,22 +1,17 @@
 <template>
-
+<div>
+  <v-card class="mx-auto" max-width="350">
+       <v-card-text>
+            <v-text-field v-model="searchString" label="Search" required filled> {{ searchString }} </v-text-field>
+            </v-card-text>
+            </v-card>
 
   <!-- Apollo watched Graphql query -->
   <ApolloQuery :query="require('../graphql/SearchItem.gql')"
-  :mutations="require('../graphql/SearchItem.gql')"
    :variables="{ searchString }">
-    <template v-slot="{ result: { mutate, loading, error, data } }">
+    <template v-slot="{ result: { loading, error, data } }">
 
-  <v-card class="mx-auto" max-width="350">
-    <v-form>
-      <v-container>
-         <v-card-text>
-            <v-text-field v-model="searchString" label="Search" required filled> {{ searchString }} </v-text-field>
-<v-btn large color="green white--text" :disabled="loading" @click="mutate()">Search</v-btn>
-         </v-card-text>
-      </v-container>
-    </v-form>
-  </v-card>
+
       <!-- Loading -->
       <div v-if="loading" class="loading apollo">Loading...</div>
 
@@ -29,17 +24,15 @@
           <v-col cols="4" v-for="(item, i) in data.Cards" :key="i">
             <v-card class="mx-auto" max-width="350">
               <v-card-text>
+                    <v-card-text>
                 <h2>{{ item.title}}</h2>
                 <p>
-                  {{ item.description    }}
+                  {{ item.description  | truncate(100)   }}
                 </p>
+              
               </v-card-text>
-              <v-card-actions>
-                <v-btn text color="black white--text" @click="editCard(item)">
-                  Edit
-                </v-btn>
-               
-              </v-card-actions>
+              </v-card-text>
+       
             </v-card>
           </v-col>
         </v-row>
@@ -49,7 +42,7 @@
       <div v-else class="no-result apollo">No result :(</div>
     </template>
   </ApolloQuery>
-
+</div>
 </template>
 <script>
 //import vue-truncate-filter from 'vue-truncate-filter'
